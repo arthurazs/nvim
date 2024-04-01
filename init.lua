@@ -20,4 +20,4 @@ require("lazy").setup("plugins")
 -- other configs
 require("options")
 
--- vim.cmd('colorscheme slate')
+-- vim.cmd("colorscheme slate")

@@ -6,8 +6,8 @@ return {
 		vim.o.timeoutlen = 300
 		require("which-key").register({
 			["<leader>l"] = { name = "+lsp" },
-			["<leader>t"] = { name = "+telescope" }
+			["<leader>t"] = { name = "+telescope" },
 		})
 	end,
-	opts = {}
+	opts = {},
 }

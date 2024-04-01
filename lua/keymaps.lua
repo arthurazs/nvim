@@ -13,8 +13,8 @@ vim.keymap.set("n", "gp", "<cmd>bp<cr>", { desc = "[g]o to [p]revious buffer" })
 vim.keymap.set("n", "gx", "<cmd>bd<cr>", { desc = "[g]o and e[x]clude current buffer" })
 
 -- term
-vim.keymap.set('t', '<Esc>', "<C-\\><C-n>", { desc = "[Esc]ape back to normal mode" })
-vim.keymap.set('n', '<leader>n', "<C-w>s<bar><C-w>j<bar><cmd>term<cr>", { desc = "Open [n]ew terminal" })
+vim.keymap.set("t", "<C-x>", "<C-\\><C-n>", { desc = "[Esc]ape back to normal mode" })
+vim.keymap.set("n", "<leader>n", "<C-w>s<bar><C-w>j<bar><cmd>term<cr>", { desc = "Open [n]ew terminal" })
 
 -- window
 vim.keymap.set("n", "<A-h>", "<C-w>h", { desc = "Move to the left window" })
