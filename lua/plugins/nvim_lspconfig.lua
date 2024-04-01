@@ -3,11 +3,12 @@ return {
 	config = function()
 		local lsp = require("lspconfig")
 		lsp.pyright.setup({})
-		
+		lsp.lua_ls.setup({ settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
+
 		vim.keymap.set("n", "<leader>lk", vim.diagnostic.open_float, { desc = "Floating Diagnostic" })
-		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" } )
+		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
 		vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Got to next diagnostic" })
-		vim.keymap.set("n", "<leader>lp", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" } )
+		vim.keymap.set("n", "<leader>lp", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
 		vim.keymap.set("n", "<leader>ln", vim.diagnostic.goto_next, { desc = "Got to next diagnostic" })
 		vim.keymap.set("n", "<leader>ll", vim.diagnostic.setloclist, { desc = "List Diagnostic" })
 

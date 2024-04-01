@@ -1,2 +1,5 @@
 # lazy
 lazy-lock.json
+
+# lsp
+.luarc.json

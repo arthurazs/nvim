@@ -12,8 +12,8 @@ return {
 		require("lualine").setup({
 			options = { theme = "onedark", globalstatus = true },
 			sections = {
-				lualine_c = {"filename", "selectioncount"},
-				lualine_x = {"searchcount", "encoding", "fileformat", "filetype"},
+				lualine_c = { "filename", "selectioncount" },
+				lualine_x = { "searchcount", "encoding", "fileformat", "filetype" },
 			},
 		})
 		require("bufferline").setup({
