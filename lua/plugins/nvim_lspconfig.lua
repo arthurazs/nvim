@@ -3,6 +3,7 @@ return {
 	config = function()
 		local lsp = require("lspconfig")
 		lsp.pyright.setup({})
+		lsp.ruff_lsp.setup({})
 		lsp.lua_ls.setup({ settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
 
 		vim.keymap.set("n", "<leader>lk", vim.diagnostic.open_float, { desc = "Floating Diagnostic" })
