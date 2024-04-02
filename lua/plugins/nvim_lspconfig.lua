@@ -2,9 +2,14 @@ return {
 	"neovim/nvim-lspconfig",
 	config = function()
 		local lsp = require("lspconfig")
-		lsp.pyright.setup({})
-		lsp.ruff_lsp.setup({})
-		lsp.lua_ls.setup({ settings = { Lua = { diagnostics = { globals = { "vim" } } } } })
+		local capabilities = require("cmp_nvim_lsp").default_capabilities() -- depends on nvim-cmp
+
+		lsp.pyright.setup({ capabilities = capabilities })
+		lsp.ruff_lsp.setup({ capabilities = capabilities })
+		lsp.lua_ls.setup({
+			capabilities = capabilities,
+			settings = { Lua = { diagnostics = { globals = { "vim" } } } }
+		})
 
 		vim.keymap.set("n", "<leader>lk", vim.diagnostic.open_float, { desc = "Floating Diagnostic" })
 		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
