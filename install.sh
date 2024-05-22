@@ -1,8 +1,4 @@
 #!/bin/bash
-
-LUA_NAME="lua-language-server"
-TREE_SITTER_NAME="tree-sitter"
-LAZYGIT_NAME="lazygit"
 LOG_NAME="/tmp/arthurazs-nvim.log"
 
 echo "Logging to $LOG_NAME"
@@ -55,6 +51,7 @@ echo "Installing neovim for npm..."
 npm install -g neovim >> $LOG_NAME 2>&1
 
 # lua
+LUA_NAME="lua-language-server"
 echo "Installing $LUA_NAME..."
 LUA_VERSION=`latest_version_without_v $LUA_REPO`
 wget `version_url $LUA_REPO $LUA_VERSION $LUA_NAME-${LUA_VERSION}-linux-x64.tar.gz` -O /tmp/$LUA_NAME.tar.gz >> $LOG_NAME 2>&1
@@ -66,6 +63,7 @@ rm ~/.local/bin/$LUA_NAME
 ln -s ~/.local/$LUA_NAME/bin/$LUA_NAME ~/.local/bin/
 
 # treesitter
+TREE_SITTER_NAME="tree-sitter"
 echo "Installing $TREE_SITTER_NAME..."
 TREE_SITTER_VERSION=`latest_version $TREE_SITTER_REPO`
 wget `version_url $TREE_SITTER_REPO v$TREE_SITTER_VERSION $TREE_SITTER_NAME-linux-x64.gz` -O /tmp/$TREE_SITTER_NAME.gz >> $LOG_NAME 2>&1
@@ -73,6 +71,7 @@ gzip -dc /tmp/$TREE_SITTER_NAME.gz > ~/.local/bin/$TREE_SITTER_NAME
 chmod +x ~/.local/bin/$TREE_SITTER_NAME
 
 # lazygit
+LAZYGIT_NAME="lazygit"
 echo "Installing $LAZYGIT_NAME..."
 LAZYGIT_VERSION=`latest_version $LAZYGIT_REPO`
 curl -Lo /tmp/$LAZYGIT_NAME.tar.gz `version_url $LAZYGIT_REPO v$LAZYGIT_VERSION ${LAZYGIT_NAME}_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz` >> $LOG_NAME 2>&1
