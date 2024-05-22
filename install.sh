@@ -34,7 +34,7 @@ echo "Installing pynvim..."
 UNINSTALL_PIP=false
 if [ ! -x /usr/bin/pip ]; then
     echo "Installing python3-pip..."
-    sudo apt install -y python3-pip >> $LOG_NAME 2>&1
+    sudo apt-get install -y python3-pip >> $LOG_NAME 2>&1
     UNINSTALL_PIP=true
 fi
 
@@ -45,7 +45,7 @@ echo "Installing pyright and ruff-lsp..."
 pip install pyright ruff-lsp $PIP_OPTIONS >> $LOG_NAME 2>&1
 if [ $UNINSTALL_PIP = true ]; then
     echo "Uninstalling python3-pip..."
-    sudo apt purge -y python3-pip >> $LOG_NAME 2>&1
+    sudo apt-get purge -y python3-pip >> $LOG_NAME 2>&1
 fi
 
 # neovim
