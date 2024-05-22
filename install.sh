@@ -1,3 +1,5 @@
+#!/bin/bash
+
 LUA_NAME="lua-language-server"
 TREE_SITTER_NAME="tree-sitter"
 LAZYGIT_NAME="lazygit"
