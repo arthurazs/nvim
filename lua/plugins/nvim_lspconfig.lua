@@ -10,6 +10,7 @@ return {
 			capabilities = capabilities,
 			settings = { Lua = { diagnostics = { globals = { "vim" } } } }
 		})
+		lsp.bashls.setup({})
 
 		vim.keymap.set("n", "<leader>lk", vim.diagnostic.open_float, { desc = "Floating Diagnostic" })
 		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
