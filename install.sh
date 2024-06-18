@@ -22,13 +22,6 @@ version_url () {
 }
 
 # PyRight and Ruff LSP
-if [ ! -d ~/.config/nvim/.venv ]; then
-    echo "Creating python venv for nvim"
-    uv venv ~/.config/nvim/.venv >> $LOG_NAME 2>&1
-fi
-echo "Installing pynvim..."
-~/.config/nvim/.venv/bin/python -m pip install pynvim >> $LOG_NAME 2>&1
-
 UNINSTALL_PIP=false
 if [ ! -x /usr/bin/pip ]; then
     echo "Installing python3-pip..."
@@ -36,14 +29,36 @@ if [ ! -x /usr/bin/pip ]; then
     UNINSTALL_PIP=true
 fi
 
-if [ $(cat /etc/os-release | grep -o "Debian") ]; then
+if [ "$(cat /etc/os-release | grep -o 'Debian')" ]; then
     PIP_OPTIONS="--break-system-packages"
 fi
+
+UNINSTALL_UV=false
+if [ ! -x ~/.local/bin/uv ]; then
+    echo "Installing uv..."
+    pip install uv $PIP_OPTIONS >> $LOG_NAME 2>&1
+    UNINSTALL_UV=true
+fi
+
+if [ ! -d ~/.config/nvim/.venv ]; then
+    echo "Creating python venv for nvim"
+    uv venv ~/.config/nvim/.venv >> $LOG_NAME 2>&1
+fi
+
+echo "Installing pynvim..."
+~/.config/nvim/.venv/bin/python -m uv pip install pynvim >> $LOG_NAME 2>&1
+
 echo "Installing pyright and ruff-lsp..."
 pip install pyright ruff-lsp $PIP_OPTIONS >> $LOG_NAME 2>&1
+
 if [ $UNINSTALL_PIP = true ]; then
     echo "Uninstalling python3-pip..."
     sudo apt-get purge -y python3-pip >> $LOG_NAME 2>&1
+fi
+
+if [ $UNINSTALL_UV = true ]; then
+    echo "Uninstalling uv..."
+    pip uninstall uv -y $PIP_OPTIONS >> $LOG_NAME 2>&1
 fi
 
 # neovim
