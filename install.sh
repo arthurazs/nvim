@@ -24,7 +24,7 @@ version_url () {
 # PyRight and Ruff LSP
 if [ ! -d ~/.config/nvim/.venv ]; then
     echo "Creating python venv for nvim"
-    python3 -m venv ~/.config/nvim/.venv >> $LOG_NAME 2>&1
+    uv venv ~/.config/nvim/.venv >> $LOG_NAME 2>&1
 fi
 echo "Installing pynvim..."
 ~/.config/nvim/.venv/bin/python -m pip install pynvim >> $LOG_NAME 2>&1
