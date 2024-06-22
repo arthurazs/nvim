@@ -51,14 +51,14 @@ echo "Installing pynvim..."
 echo "Installing pyright and ruff-lsp..."
 pip install pyright ruff-lsp $PIP_OPTIONS >> $LOG_NAME 2>&1
 
-if [ $UNINSTALL_PIP = true ]; then
-    echo "Uninstalling python3-pip..."
-    sudo apt-get purge -y python3-pip >> $LOG_NAME 2>&1
-fi
-
 if [ $UNINSTALL_UV = true ]; then
     echo "Uninstalling uv..."
     pip uninstall uv -y $PIP_OPTIONS >> $LOG_NAME 2>&1
+fi
+
+if [ $UNINSTALL_PIP = true ]; then
+    echo "Uninstalling python3-pip..."
+    sudo apt-get purge -y python3-pip >> $LOG_NAME 2>&1
 fi
 
 # neovim
