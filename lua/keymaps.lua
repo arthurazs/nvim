@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", ";", ":", { desc = "Command" })
+vim.keymap.set("n", "<Esc>", "<cmd>noh<cr>", { desc = "Clear highlights" })
 
 -- indent
 vim.keymap.set("v", "<", "<gv", { desc = "Indent visual selection" })
