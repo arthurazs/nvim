@@ -1,1 +1,5 @@
-return { "mcauley-penney/visual-whitespace.nvim", config = true }
+return {
+    "mcauley-penney/visual-whitespace.nvim",
+    event = "ModeChanged *:[vV\x16]*",  -- Load on VisualEnter
+    config = true
+}

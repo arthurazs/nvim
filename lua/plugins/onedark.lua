@@ -1,10 +1,17 @@
 return {
-	"navarasu/onedark.nvim",
-	config = function()
-		require("onedark").setup({
-			style = "deep",
-			lualine = { transparent = true },
-		})
-		require("onedark").load()
-	end,
+    "navarasu/onedark.nvim",
+    lazy=false,
+    priority=1000,
+    dependencies = {
+        "nvim-tree/nvim-web-devicons",
+        "echasnovski/mini.icons",
+    },
+    config = function()
+        require("onedark").setup({
+            style = "deep",
+            transparent = true,
+            lualine = { transparent = true },
+        })
+        require("onedark").load()
+    end,
 }

@@ -1,15 +1,25 @@
 return {
-	"nvim-treesitter/nvim-treesitter",
-	build = ":TSUpdate",
-	opts = {
-		auto_install = true,
-		highlight = {
-			enable = true,
-			additional_vim_regex_highlighting = { "ruby" },
-		},
-		indent = { enable = true, disable = { "ruby" } },
-	},
-	config = function(_, opts)
-		require("nvim-treesitter.configs").setup(opts)
-	end,
+    "nvim-treesitter/nvim-treesitter",
+    lazy = true,
+    dependencies = { "jrudess/vim-foldtext" },
+    build = ":TSUpdate",
+    opts = {
+        auto_install = true,
+        highlight = { enable = true },
+        indent = { enable = true },
+    },
+    config = function(_, opts)
+        local opt = vim.opt
+        local g = vim.g
+        require("nvim-treesitter.configs").setup(opts)
+
+        -- folding
+        opt.foldcolumn = "auto"
+        opt.foldmethod = 'expr'
+        opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+        -- opt.foldnestmax = 4
+        -- opt.foldlevelstart = 2
+        opt.foldlevel = 99
+        g.FoldText_info = false -- vim-foldtext
+    end,
 }
