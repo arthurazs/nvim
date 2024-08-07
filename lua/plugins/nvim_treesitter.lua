@@ -1,6 +1,7 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    lazy = true,
+    lazy = false,
+    priority=999,
     dependencies = { "jrudess/vim-foldtext" },
     build = ":TSUpdate",
     opts = {
