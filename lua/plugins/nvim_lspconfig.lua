@@ -14,14 +14,16 @@ return {
             ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help,
                 cmp.config.window.bordered()),
         }
-        local on_attach = function(client, bufnr)
+        local on_attach = function(client, _)
             if client.name == 'ruff' then
                 client.server_capabilities.hoverProvider = false -- Disable hover in favor of Pyright
             end
         end
-        local capabilities = require("cmp_nvim_lsp").default_capabilities() -- depends on nvim-cmp
 
-        local servers = { 'rust_analyzer', 'pyright', 'bashls', "ruff", "lua_ls" }
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities) -- depends on nvim-cmp
+
+        local servers = { 'rust_analyzer', 'pyright', 'bashls', "ruff", "lua_ls", "gopls" }
         for _, server in ipairs(servers) do
             local opts = {
                 handlers = handlers,
