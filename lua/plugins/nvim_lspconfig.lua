@@ -23,7 +23,8 @@ return {
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities) -- depends on nvim-cmp
 
-        local servers = { 'rust_analyzer', 'pyright', 'bashls', "ruff", "lua_ls", "gopls", "superhtml", "clangd" }
+        local servers = { 'rust_analyzer', 'pyright', 'bashls', "ruff", "lua_ls", "gopls", "superhtml", "clangd",
+            "r_language_server" }
         for _, server in ipairs(servers) do
             local opts = {
                 handlers = handlers,
