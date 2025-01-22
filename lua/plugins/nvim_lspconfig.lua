@@ -23,8 +23,8 @@ return {
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities) -- depends on nvim-cmp
 
-        local servers = { 'rust_analyzer', 'pyright', 'bashls', "ruff", "lua_ls", "gopls", "superhtml", "clangd",
-            "r_language_server" }
+        local servers = { "rust_analyzer", "pyright", "bashls", "ruff", "lua_ls", "gopls", "superhtml", "clangd",
+            "r_language_server", "java_language_server" }
         for _, server in ipairs(servers) do
             local opts = {
                 handlers = handlers,
@@ -38,6 +38,11 @@ return {
                 }
             elseif server == "lua_ls" then
                 opts.settings = { Lua = { diagnostics = { globals = { "vim" } } } }
+            elseif server == "java_language_server" then
+                local home = os.getenv("HOME")
+                opts.cmd = {
+                    home .. "/.local/java-language-server/dist/lang_server_linux.sh"
+                }
             end
             lsp[server].setup(opts)
         end
