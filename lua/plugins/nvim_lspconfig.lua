@@ -96,6 +96,13 @@ return {
                 vim.keymap.set(
                     "n", "<leader>lf", function() vim.lsp.buf.format { async = true } end,
                     vim.tbl_extend("force", opts, { desc = "Format" }))
+                vim.keymap.set("n", "<leader>lT", function()
+                    if vim.diagnostic.is_enabled() then
+                        vim.diagnostic.disable()
+                    else
+                        vim.diagnostic.enable()
+                    end
+                end, { desc = "Toggle diagnostic" })
             end,
         })
     end,
