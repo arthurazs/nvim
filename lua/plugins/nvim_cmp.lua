@@ -36,7 +36,8 @@ return { -- adapted from nvim-lua/kickstart.nvim
                     maxwidth = 50,
                     ellipsis_char = "...",
                     show_labelDetails = true,
-                    before = function(entry, vim_item)
+                    symbol_map = { Codeium = "", },
+                    before = function(_, vim_item)
                         return vim_item
                     end
                 })
@@ -84,6 +85,7 @@ return { -- adapted from nvim-lua/kickstart.nvim
                 { name = "nvim_lsp" },
                 { name = "luasnip" },
                 { name = "path" },
+                { name = "codeium" },
             },
         }
         vim.cmd(":set winhighlight=" .. cmp.config.window.bordered().winhighlight)
