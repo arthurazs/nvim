@@ -16,7 +16,13 @@ return {
                 always_divide_middle = false,
             },
             sections = {
-                lualine_c = { "windows", "selectioncount" },
+                lualine_c = {
+                    "windows",
+                    function()
+                        return require("codeium.virtual_text").status_string()
+                    end,
+                    "selectioncount",
+                },
                 lualine_x = { "searchcount", "encoding", "fileformat", "filetype" },
             },
         })
