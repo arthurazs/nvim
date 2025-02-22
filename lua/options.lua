@@ -15,7 +15,8 @@ opt.signcolumn = "yes"
 
 opt.scrolloff = 5
 
-opt.cmdheight = 0
+-- opt.showmode = false
+-- opt.cmdheight = 0
 
 opt.wrap = false
 opt.list = true
@@ -30,3 +31,6 @@ opt.listchars = {
 opt.whichwrap:append "<>hl"
 
 opt.undofile = true
+
+opt.splitright = true
+opt.splitbelow = true
