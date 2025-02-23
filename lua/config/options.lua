@@ -15,7 +15,7 @@ opt.signcolumn = "yes"
 
 opt.scrolloff = 5
 
--- opt.showmode = false
+opt.showmode = false
 -- opt.cmdheight = 0
 
 opt.wrap = false
