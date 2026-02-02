@@ -14,6 +14,7 @@ opt.relativenumber = true
 opt.signcolumn = "yes"
 
 opt.scrolloff = 5
+opt.sidescrolloff = 2
 
 opt.showmode = false
 -- opt.cmdheight = 0
