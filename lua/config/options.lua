@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 local opt = vim.opt
 local tab_width = 4
 
@@ -35,3 +37,11 @@ opt.undofile = true
 
 opt.splitright = true
 opt.splitbelow = true
+
+-- Folding
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
+opt.foldtext = "v:lua.vim.lsp.foldtext()"
+opt.foldlevel = 99 -- Start with all folds open
+opt.foldlevelstart = 99
+opt.foldenable = true

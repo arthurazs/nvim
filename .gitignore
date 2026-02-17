@@ -1,8 +1,0 @@
-# python
-.venv
-
-# lazy
-lazy-lock.json
-
-# lsp
-.luarc.json
