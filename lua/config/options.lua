@@ -38,10 +38,14 @@ opt.undofile = true
 opt.splitright = true
 opt.splitbelow = true
 
+opt.termguicolors = true
+
+-- Spelling
+-- opt.spelllang = { 'en_uk', 'pt_br' } -- Supports English and Portuguese
+-- opt.spell = true -- Keep it off by default, toggle when needed
+
 -- Folding
-opt.foldmethod = "expr"
-opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
-opt.foldtext = "v:lua.vim.lsp.foldtext()"
 opt.foldlevel = 99 -- Start with all folds open
 opt.foldlevelstart = 99
 opt.foldenable = true
+opt.foldtext = ""

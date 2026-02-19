@@ -20,10 +20,9 @@ if vim.fn.filereadable(fzf_binary) == 0 then
                     vim.notify("fzf-native built successfully!", vim.log.levels.INFO, {
                         title = "Plugin Setup",
                         icon = "󰄲",
-                        replace = build_msg, -- Transform the old notification into this one
+                        replace = build_msg,
                     })
-                    -- 3. Load the extension only after it's actually built
-                    pcall(require('telescope').load_extension, 'fzf')
+                    pcall(require("telescope").load_extension, "fzf")
                 else
                     vim.notify("Build failed: " .. (obj.stderr or "Check your logs"), vim.log.levels.ERROR, {
                         title = "Build Error"
@@ -33,8 +32,7 @@ if vim.fn.filereadable(fzf_binary) == 0 then
         end)
     end, 100)
 else
-    -- If it's already built, just load it normally
-    pcall(require('telescope').load_extension, 'fzf')
+    pcall(require("telescope").load_extension, "fzf")
 end
 
 vim.keymap.set("n", "<leader>tf", "<cmd>Telescope find_files<cr>", { desc = "[F]ind Files" })

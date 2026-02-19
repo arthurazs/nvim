@@ -1,9 +1,11 @@
 -- Configs
 require("config.options")
 require("config.keymaps")
+require("config.autocmds")
 
 -- Plugings
 require("plugins.nvim-notify")
+require("plugins.nvim-treesitter")
 require("plugins.onedark")
 require("plugins.which-key")
 require("plugins.lsp")
@@ -12,3 +14,7 @@ require("plugins.lazygit")
 require("plugins.nvim-tree")
 require("plugins.toggleterm")
 require("plugins.codeium")
+-- require("plugins.bufferline")
+require("plugins.lualine")
+require("plugins.fidget")
+require("plugins.dropbar")
