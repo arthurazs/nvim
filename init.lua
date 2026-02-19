@@ -1,3 +1,5 @@
+vim.g.python3_host_prog = "~/.config/nvim/.venv/bin/python"
+
 -- Configs
 require("config.options")
 require("config.keymaps")
