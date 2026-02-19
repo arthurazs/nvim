@@ -41,8 +41,8 @@ opt.splitbelow = true
 opt.termguicolors = true
 
 -- Spelling
--- opt.spelllang = { 'en_uk', 'pt_br' } -- Supports English and Portuguese
--- opt.spell = true -- Keep it off by default, toggle when needed
+opt.spelllang = { 'en_uk', 'pt_br' }
+opt.spell = true
 
 -- Folding
 opt.foldlevel = 99 -- Start with all folds open
