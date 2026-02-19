@@ -45,6 +45,7 @@ opt.spelllang = { 'en_uk', 'pt_br' }
 opt.spell = true
 
 -- Folding
+opt.foldcolumn = "auto"
 opt.foldlevel = 99 -- Start with all folds open
 opt.foldlevelstart = 99
 opt.foldenable = true
