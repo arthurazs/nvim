@@ -41,7 +41,7 @@ opt.splitbelow = true
 opt.termguicolors = true
 
 -- Spelling
-opt.spelllang = { 'en_uk', 'pt_br' }
+opt.spelllang = { 'en_gb', 'pt_br' }
 opt.spell = true
 
 -- Folding
