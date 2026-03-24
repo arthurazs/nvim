@@ -6,9 +6,9 @@ require("config.keymaps")
 require("config.autocmds")
 
 -- Plugings
+require("plugins.onedark")
 require("plugins.nvim-notify")
 require("plugins.nvim-treesitter")
-require("plugins.onedark")
 require("plugins.which-key")
 require("plugins.lsp")
 require("plugins.telescope")
