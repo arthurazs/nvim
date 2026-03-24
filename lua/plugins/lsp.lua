@@ -9,23 +9,32 @@ local servers = {
             -- disabling pyright formatting to let Ruff handle it
             client.server_capabilities.documentFormattingProvider = false
             client.server_capabilities.documentRangeFormattingProvider = false
+            -- disabling pyright hover and references, in favor of pyrefly
+            client.server_capabilities.hoverProvider = false
+            client.server_capabilities.referencesProvider = false
         end,
         settings = {
             -- disabling imports and diagnostics, in favor of ruff
             pyright = { disableOrganizeImports = true },
-            python = { analysis = { ignore = { '*' }, typeCheckingMode = "standard" } },
+            python = { analysis = { ignore = { '*' }, typeCheckingMode = "strict" } },
         }
     },
     ruff = {
         on_attach = function(client)
-            -- disabling hover, in favor of pyright
+            -- disabling hover, in favor of pyrefly
             client.server_capabilities.hoverProvider = false
         end,
     },
     lua_ls = { settings = { Lua = { diagnostics = { globals = { "vim" } } } } },
     clangd = {},
     pyrefly = {},
-    ty = {},
+    ty = {
+        on_attach = function(client)
+            -- disabling hover and references, in favor of pyrefly
+            client.server_capabilities.hoverProvider = false
+            client.server_capabilities.referencesProvider = false
+        end,
+    },
 }
 
 for name, config in pairs(servers) do
