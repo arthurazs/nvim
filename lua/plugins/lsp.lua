@@ -12,6 +12,8 @@ local servers = {
             -- disabling pyright hover and references, in favor of pyrefly
             client.server_capabilities.hoverProvider = false
             client.server_capabilities.referencesProvider = false
+            -- disabling pyright signature help, in favor of pyrefly
+            client.server_capabilities.signatureHelpProvider = false
         end,
         settings = {
             -- disabling imports and diagnostics, in favor of ruff
@@ -33,6 +35,8 @@ local servers = {
             -- disabling hover and references, in favor of pyrefly
             client.server_capabilities.hoverProvider = false
             client.server_capabilities.referencesProvider = false
+            -- disabling pyright signature help, in favor of pyrefly
+            client.server_capabilities.signatureHelpProvider = false
         end,
     },
 }
